@@ -144,14 +144,6 @@
                     <navigationItem key="navigationItem" title="Gerador de Senhas" id="g4Q-xi-gtv">
                         <barButtonItem key="backBarButtonItem" title="Gerador de Senhas" id="G8e-64-Pch"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="capitalLettersSwitch" destination="aUH-Rp-PDJ" id="CC1-8k-EdC"/>
-                        <outlet property="lettersSwitch" destination="WgR-PD-m2h" id="k0M-X3-UJx"/>
-                        <outlet property="numberOfCharactersTextField" destination="tTe-rP-GK8" id="uGA-ih-EWZ"/>
-                        <outlet property="numbersSwitch" destination="ciL-fV-dhl" id="cfK-dJ-70a"/>
-                        <outlet property="specialCharactersSwich" destination="dZd-oi-pSJ" id="AgH-gd-puf"/>
-                        <outlet property="totalPasswordsTextField" destination="PYO-38-JBS" id="7oQ-IW-iYf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -245,7 +237,7 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">
+                                        <mutableString key="content">
 Uma senha fácil de guardar na memória evita que o usuário tenha que anotá-la em papeis ou arquivos, que podem chegar às mãos de pessoas erradas.
 
 2. Não use palavras reais 
@@ -273,7 +265,7 @@ Esse procedimento evita possíveis fraudes. Ao abrir links suspeitos, o usuário
 Muitos ataques podem ser evitados ao ativar serviços básicos de proteção na internet dos antivírus.
 
 10.  Se você achar que é difícil lembrar-se de várias senhas complexas, considere a instalação de um gerenciadores de senhas 
-Há diversos programas disponíveis que armazenam os dados de maneira segura e ajudam os mais esquecidos.</string>
+Há diversos programas disponíveis que armazenam os dados de maneira segura e ajudam os mais esquecidos.</mutableString>
                                         <attributes>
                                             <color key="NSColor" systemColor="labelColor"/>
                                             <font key="NSFont" metaFont="system" size="14"/>
