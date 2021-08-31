@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" constant="80" id="9hH-TL-u23"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total de Caracteres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn0-qw-Odb">
                                 <rect key="frame" x="24" y="178" width="154" height="22"/>
@@ -37,12 +37,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Máx. 16" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTe-rP-GK8">
-                                <rect key="frame" x="186" y="172" width="165" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="S6b-da-TUb"/>
-                                </constraints>
+                                <rect key="frame" x="271" y="172" width="80" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usar letras minúsculas " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIF-CS-jm2">
                                 <rect key="frame" x="24" y="216" width="270" height="22"/>
@@ -112,7 +109,7 @@
                             <constraint firstItem="aEo-85-91I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="83q-jG-nb5"/>
                             <constraint firstItem="aEo-85-91I" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="9rV-yZ-UAV"/>
                             <constraint firstItem="ciL-fV-dhl" firstAttribute="leading" secondItem="A6h-Kj-opU" secondAttribute="trailing" constant="8" id="Bho-Ue-Dsm"/>
-                            <constraint firstItem="tTe-rP-GK8" firstAttribute="leading" secondItem="Sn0-qw-Odb" secondAttribute="trailing" constant="8" id="CCO-2I-7YZ"/>
+                            <constraint firstItem="tTe-rP-GK8" firstAttribute="leading" secondItem="Sn0-qw-Odb" secondAttribute="trailing" constant="93" id="CCO-2I-7YZ"/>
                             <constraint firstItem="d5j-z3-WS8" firstAttribute="top" secondItem="4vx-tN-WY9" secondAttribute="bottom" constant="16" id="FXI-3N-tME"/>
                             <constraint firstItem="4vx-tN-WY9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="G1c-en-va0"/>
                             <constraint firstItem="WgR-PD-m2h" firstAttribute="centerY" secondItem="wIF-CS-jm2" secondAttribute="centerY" id="H0W-Mf-NJK"/>
@@ -160,7 +157,7 @@
         <!--Lista de Senhas-->
         <scene sceneID="94B-MR-v9e">
             <objects>
-                <viewController id="b8d-bg-Ap6" sceneMemberID="viewController">
+                <viewController id="b8d-bg-Ap6" customClass="PasswordsViewController" customModule="SuperSenha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="StR-fL-yK1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +168,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gDE-YY-I7f" kind="presentation" id="wTb-SZ-PBM"/>
+                                    <segue destination="wXp-b2-v07" kind="presentation" id="zIc-tw-X2T"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2h-fK-B4n">
@@ -183,6 +180,9 @@
                                 <state key="normal" title="Gerar Novamente">
                                     <color key="titleColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="generateButton:" destination="b8d-bg-Ap6" eventType="touchUpInside" id="A8k-zp-Vbg"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aGq-ls-jmC">
                                 <rect key="frame" x="16" y="118" width="343" height="421"/>
@@ -208,34 +208,33 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Lista de Senhas" id="8h5-JO-oHl"/>
+                    <connections>
+                        <outlet property="passwordsTextField" destination="aGq-ls-jmC" id="nAQ-9d-U9w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbm-mq-fRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1581.5999999999999" y="64.31784107946028"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="OPB-DX-ohk">
+        <!--Security Tips View Controller-->
+        <scene sceneID="VXf-zJ-6Sr">
             <objects>
-                <viewController id="gDE-YY-I7f" sceneMemberID="viewController">
-                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="adQ-ZO-PFG">
+                <viewController id="wXp-b2-v07" customClass="SecurityTipsViewController" customModule="SuperSenha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uom-Km-C1z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 dicas para ter uma senha forte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sW1-fv-k86">
-                                <rect key="frame" x="60.5" y="12" width="254" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73I-DF-oNP">
-                                <rect key="frame" x="304" y="597" width="47" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogs-88-V6Y">
+                                <rect key="frame" x="312" y="597" width="47" height="30"/>
                                 <state key="normal" title="Fechar">
                                     <color key="titleColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeBt:" destination="wXp-b2-v07" eventType="touchUpInside" id="4LO-Yp-Txy"/>
+                                </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="olK-NE-fkO">
-                                <rect key="frame" x="16" y="60" width="343" height="512"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XtI-ZF-kTs">
+                                <rect key="frame" x="16" y="89" width="343" height="462"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <attributedString key="attributedText">
                                     <fragment content="1. Escolha senhas fáceis de lembrar ">
@@ -282,20 +281,31 @@ Há diversos programas disponíveis que armazenam os dados de maneira segura e a
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 dicas para ter uma senha forte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwe-Xp-p8M">
+                                <rect key="frame" x="60" y="20" width="255" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.59607843140000005" green="0.14117647059999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="YDX-Bh-AY4"/>
+                        <viewLayoutGuide key="safeArea" id="ddb-NC-ij0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YDX-Bh-AY4" firstAttribute="bottom" secondItem="73I-DF-oNP" secondAttribute="bottom" constant="20" id="AtA-Jz-ie3"/>
-                            <constraint firstItem="sW1-fv-k86" firstAttribute="centerX" secondItem="adQ-ZO-PFG" secondAttribute="centerX" id="BLi-uU-SzG"/>
-                            <constraint firstItem="YDX-Bh-AY4" firstAttribute="trailing" secondItem="73I-DF-oNP" secondAttribute="trailing" constant="24" id="Nkd-ac-gvU"/>
-                            <constraint firstItem="sW1-fv-k86" firstAttribute="top" secondItem="YDX-Bh-AY4" secondAttribute="top" constant="12" id="wrR-1i-qbn"/>
+                            <constraint firstItem="ddb-NC-ij0" firstAttribute="trailing" secondItem="Ogs-88-V6Y" secondAttribute="trailing" constant="16" id="14q-7X-BGC"/>
+                            <constraint firstItem="Pwe-Xp-p8M" firstAttribute="leading" secondItem="ddb-NC-ij0" secondAttribute="leading" constant="60" id="7Xl-ma-juO"/>
+                            <constraint firstItem="XtI-ZF-kTs" firstAttribute="trailing" secondItem="Ogs-88-V6Y" secondAttribute="trailing" id="HW0-Ny-3a5"/>
+                            <constraint firstItem="XtI-ZF-kTs" firstAttribute="top" secondItem="Pwe-Xp-p8M" secondAttribute="bottom" constant="48" id="Nmx-tP-iDz"/>
+                            <constraint firstItem="ddb-NC-ij0" firstAttribute="trailing" secondItem="Pwe-Xp-p8M" secondAttribute="trailing" constant="60" id="fMw-mZ-mcE"/>
+                            <constraint firstItem="XtI-ZF-kTs" firstAttribute="centerX" secondItem="uom-Km-C1z" secondAttribute="centerX" id="oUD-y3-2xo"/>
+                            <constraint firstItem="ddb-NC-ij0" firstAttribute="bottom" secondItem="Ogs-88-V6Y" secondAttribute="bottom" constant="20" id="s5C-JB-fLB"/>
+                            <constraint firstItem="Pwe-Xp-p8M" firstAttribute="top" secondItem="ddb-NC-ij0" secondAttribute="top" constant="20" id="ttz-cF-RPn"/>
+                            <constraint firstItem="Ogs-88-V6Y" firstAttribute="top" secondItem="XtI-ZF-kTs" secondAttribute="bottom" constant="46" id="xZB-gd-LFb"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bxh-NF-gRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5L1-wb-ImS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296.8000000000002" y="63.418290854572717"/>
+            <point key="canvasLocation" x="2361" y="64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L5X-lC-PIn">
